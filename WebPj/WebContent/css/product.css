@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  background: #0D6271;
+}
+
+svg {
+  width: 100vw;
+  height: 100vh;
+}
+svg text {
+  font-family: "Heebo", "Myriad Pro", sans-serif;
+}
+
+.dn {
+  opacity: 0;
+}
