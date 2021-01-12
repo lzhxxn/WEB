@@ -1,0 +1,23 @@
+<meta charset='utf-8'>
+<center>
+	<h1>
+		File List MVC  
+	</h1>
+	<table border='1' cellpadding='7' cellspacing='2' width='50%'>
+	    <tr>
+		    <th>파일이름</th>
+			<th>삭제</th>
+		</tr>
+		<c:forEach items="${kids}" var="kid">
+	        <tr>
+			    <th><a href="">abc.jpg</a></th>
+				<th><a href="">삭제</a></th>
+			</tr>
+		</c:forEach>
+		
+    </table>
+    <br/>
+    <a href="file.do?m=form">업로드 폼</a>
+    &nbsp;&nbsp;&nbsp;
+    <a href="../index.do">인덱스</a>
+</center>	
