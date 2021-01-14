@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.blog-member {
+/*   margin-top: 15px;
+  width: 120px; */
+  height: 35px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.blog-member__text,
+.blog-member__login,
+.blog-member__logout {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.blog-member__login,
+.blog-member__logout {
+  margin-left: 5px;
+  font-weight: bold;
+}
+.blog-member__text {
+  padding: 5px 10px;
+  border-radius: 20px;
+  border-radius: 50%;
+  background: #47dc9d;
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: #0D6271;
+}
+
+svg {
+  width: 100vw;
+  height: 100vh;
+}
+svg text {
+  font-family: "Heebo", "Myriad Pro", sans-serif;
+}
+
+.dn {
+  opacity: 0;
+}
