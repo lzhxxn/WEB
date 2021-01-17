@@ -9,5 +9,5 @@
     	alert("삭제 실패");
     }
     
-    location.href="board.do";
+    location.href="../board/board.do?m=list";
 </script>

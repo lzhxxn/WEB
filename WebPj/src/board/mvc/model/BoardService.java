@@ -48,6 +48,9 @@ public class BoardService {
 	public void update2S(Board dto) {
 		dao.update2(dto);
 	}
+	public void upcountS(int seq) {
+		dao.upcount(seq);
+	}
 	
 }
 

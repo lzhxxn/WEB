@@ -64,8 +64,9 @@
 		}
 	}
 </script>
+<g font-family="카페24 아네모네">
 <div class="login-box">
-  <h2>Manager Login</h2>
+  <h2>관리자 로그인</h2>
 
    <form name="f" action="login/login.do?m=check" method="post">
     <div class="user-box">
@@ -84,4 +85,5 @@
       Submit
     </button>
   </form>
+  </g>
 </div>

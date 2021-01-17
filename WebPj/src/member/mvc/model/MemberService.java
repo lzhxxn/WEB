@@ -2,8 +2,7 @@ package member.mvc.model;
 
 import java.util.*;
 
-import board.mvc.vo.ListResult;
-import mvc.domain.Board;
+import mvc.domain.Member;
 import mvc.domain.Member;
 
 public class MemberService {
@@ -17,18 +16,23 @@ public class MemberService {
 	public static MemberService getInstance() {
 		return instance;
 	}
-	public ListResult getListResult(int currentPage, int pageSize) { //ListResult를 리턴하게끔 만들어야해서 ListResult타입!
-		System.out.println("");
-		
-		ArrayList<Member> list = dao.list(currentPage, pageSize); //use1
-		
-		long totalCount = dao.getTotalCount(); //use2
-		
-		return new ListResult(currentPage, totalCount, pageSize, list);
+	public ArrayList<Member> listS(){
+		return dao.list();
 	}
 	public void insertS(Member dto) {
 		dao.insert(dto);
 	}
-
+	public boolean delS(int seq) {
+		return dao.del(seq);
+	}
+	public Member contentS(int seq) {
+		return dao.content(seq);
+	}
+	public Member update1S(int seq) {
+		return dao.update1(seq);
+	}
+	public void update2S(Member dto) {
+		dao.update2(dto);
+	}
 }
 

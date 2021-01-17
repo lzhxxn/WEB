@@ -9,11 +9,11 @@ public class Goods {
 	private String fname;
 	private String ofname;
 	private long fsize;
-	private Date rdate; 
+	private String rdate; 
 
 	public Goods() {}// MVC에서 쓸거기때문에 public
 
-	public Goods(int seq, String name, String etc, String fname, String ofname, long fsize, Date rdate) {
+	public Goods(int seq, String name, String etc, String fname, String ofname, long fsize, String rdate) {
 		super();
 		this.seq = seq;
 		this.name = name;
@@ -72,13 +72,11 @@ public class Goods {
 		this.fsize = fsize;
 	}
 
-	public Date getRdate() {
+	public String getRdate() {
 		return rdate;
 	}
 
-	public void setRdate(Date rdate) {
+	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
-
-	
-	}
+}

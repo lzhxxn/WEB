@@ -5,6 +5,20 @@
 <link href="../css/product.css" rel="stylesheet" type="text/css" media="all" />
 <script src='../js/product.js'></script>
 
+<div style="float:right;" class="blog-member">
+   <c:if test="${!empty loginPassUser}">
+         <span class="blog-member__text">${loginPassUser.name} 님</span> 
+   </c:if>
+   <c:choose>
+      <c:when test="${empty loginPassUser}">
+         <a href="../login/login.do?m=check" class="blog-member__login">로그인</a>
+      </c:when>
+       <c:otherwise>
+         <a href="../login/login.do?m=out" class="blog-member__logout">로그아웃</a>
+       </c:otherwise>
+   </c:choose>
+</div>
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="5 5 1155 1315">
   <defs>
     <linearGradient id="k" x1="638.49" x2="545.62" y1="1260.93" y2="358.77" gradientUnits="userSpaceOnUse">
@@ -251,28 +265,28 @@
         <path fill="#f6ffff" d="M579.9 336.6a5.8 5.8 0 1 0-5.8 5.8 5.8 5.8 0 0 0 5.8-5.8z"/>
         <path fill="#f60" d="M576.5 336.6a2.4 2.4 0 1 0-2.4 2.4 2.4 2.4 0 0 0 2.4-2.4z"/>
       </g>
-      <text font-family="Montserrat-Black,Montserrat" font-size="22.371" letter-spacing=".5em" opacity=".27" style="mix-blend-mode:multiply" transform="translate(188.2 1144.1)">
+      <text font-family="카페24 아네모네" font-size="22.371" letter-spacing=".5em" opacity=".27" style="mix-blend-mode:multiply" transform="translate(188.2 1144.1)">
         BITCAMP
       </text>
       <text fill="#fff" font-family="Montserrat-Black,Montserrat" font-size="24" letter-spacing=".3em" transform="translate(96.3 402.1)">
-      	<a href="../member/signup.jsp">SignUp</a>
+      	<a href="../member/signup.jsp" style="color:white !important;">MemberSignUp</a>
       </text>
       <text fill="#fff" font-family="Montserrat-Black,Montserrat" font-size="24" letter-spacing=".28em" transform="translate(858.4 483.9)">
-        <a href="../member/list.jsp">ProductList</a>
+        <a href="../goods/goods.do?m=list" style="color:white !important;">ProductList</a>
       </text>
       <text fill="#fff" font-family="Montserrat-Black,Montserrat" font-size="24" letter-spacing=".3em" transform="translate(101.4 654.5)">
-       <a href="../member/list.jsp">MemberList</a>
+       <a href="../member/member.do?m=list" style="color:white !important;">MemberList</a>
       </text>
       <text fill="#fff" font-family="Montserrat-Black,Montserrat" font-size="24" letter-spacing=".3em" transform="translate(893.6 788.4)">
-        <a href="board/board.do?m=notice">NoticeBoard</a>
+        <a href="../board/board.do?m=list" style="color:white !important;">NoticeBoard</a>
       </text>
       <text fill="#fff" font-family="Montserrat-Black,Montserrat" font-size="24" letter-spacing=".3em" transform="translate(116.4 939.1)">
-        <a href="board/board.do?m=sales">SalesCheck</a>
+        <a href="../money/money.do?m=list" style="color:white !important;">SalesCheck</a>
       </text>
     </g>
-    <g font-family="Montserrat-Black,Montserrat">
+    <g font-family="카페24 아네모네">
       <text class="services" fill="#fff" font-size="60" letter-spacing=".5em" transform="translate(590 208.3)" text-anchor="middle">
-       MEMBER MANAGE
+        베라 회원 관리페이지
       </text>
       <text class="in dn" fill="#fff" font-size="60" letter-spacing=".5em" transform="translate(590 208.3)" text-anchor="middle">
         INFRASTRUCTURE
@@ -283,13 +297,8 @@
        <text class="fn dn" fill="#fff" font-size="60" letter-spacing=".5em" transform="translate(590 208.3)" text-anchor="middle">
         FUNCTIONS
       </text>
-      
-      <text class="manage" fill="#db1935" font-size="24" letter-spacing=".3em" transform="translate(420 260.7)">
-        WHAT YOU MANAGE
-      </text>
       <text class="aas dn" fill="#db1935" font-size="24" letter-spacing=".3em"  transform="translate(600 260.7)" text-anchor="middle">
         AS A SERVICE
       </text>
     </g>
-  </g>
 </svg>

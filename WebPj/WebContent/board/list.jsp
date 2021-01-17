@@ -1,56 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     import="java.util.*, mvc.domain.Board, board.mvc.vo.ListResult"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <!-- 태그 + lib = JSTL --> <!-- =>자바코드를 몰아낼 수 있다 view에서 -->
- <!-- c -> JSTL core -->
- <%-- <jsp:include page="../login/login_check_modul.jsp"/> <!-- HTML --> --%>
- 
-<%-- <c:if test="${empty loginPassUser}">
-   <script>
-	  alert("회원 서비스 입니다. 로긴 먼저 하고 오세요~");
-	  location.href="../login/login.do?m=form";
-	  
-	  //history.back();
-	  //history.forward();
-	  //history.go(-1);
-   </script>
-</c:if> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
+<link href="../css/list.css" rel="stylesheet" type="text/css" media="all" />
+<script src='../js/list.js'></script>
     
-<meta charset='utf-8'>
-<style>
-table, th, td {
-border: 1px solid black;
-border-collapse: collapse;
-}
-th, td {
-padding: 5px;
-}
-a { text-decoration:none }
-</style>
-</head>
-<body>
-<center>
-<font color='gray' size='4' face='휴먼편지체'>
-<hr width='600' size='2' color='gray' noshade>
-<h3> BOARD List MVC (Paging)  </h3>
-<font color='gray' size='4' face='휴먼편지체'>
-<a href='../'>인덱스</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href='board.do?m=write'>글쓰기</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href='board.do?m=del_all'>dellAll</a>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</font>
-<hr width='600' size='2' color='gray' noshade>
-<TABLE border='2' width='600' align='center' noshade>
-<TR size='2' align='center' noshade bgcolor='AliceBlue'>
-<th bgcolor='AliceBlue'>번호</th>
-<th align='center' width='10%'>작성자</th>
-<th align='center' width='30%'>이메일</th>
-<th align='center' width='30%'>글제목</th>
-<th align='center' width='15%'>작성일</th>
-
-</TR>
-
+<section>
+  <!--for demo wrap-->
+  <h1>NOTICE</h1>
+  <center>
+  <a href="../context/context.jsp">INDEX</a>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href='board.do?m=write'>WRITE</a>
+  </center>
+  <div class="tbl-header">
+ 
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>글번호</th>
+          <th>글제목</th>
+          <th>작성자</th>
+          <th>작성일</th>
+          <th>조회수</th>
+        </tr>
+        </thead>
+       </table> 
+  	</div>
+  	<div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
 <%
 	ListResult listResult = (ListResult)request.getAttribute("listResult");  /* 원래형을 찾아주기위해  (ListResult) 쓴다 */
 	// request에 넣어두었던, ListResult 객체를 뽑아내서 listResult라는 이름으로 대입.
@@ -65,10 +44,10 @@ a { text-decoration:none }
 <TR>
 <!-- // dto에 담긴 데이터들을 뿌려준다. -->
 <TD align='center'><%=dto.getSeq()%></TD>
-<TD align='center'><%=dto.getWriter()%></TD>
-<TD align='center'><%=dto.getEmail()%></TD>
 <TD align='center'><a href='board.do?m=content&seq=<%=dto.getSeq()%>'><%=dto.getSubject()%></a></TD>
+<TD align='center'><%=dto.getWriter()%></TD>
 <TD align='center'><%=dto.getRdate()%></TD>
+<TD align='center'><%=dto.getCount()%></TD>
 </TR>
 <%    		
     	} //for문 닫기
@@ -80,12 +59,16 @@ a { text-decoration:none }
 <%    	
     } //else문 닫기
 %>
-</table>
-</div>
+ </tbody>
+     </table>
+   </div>
+ </section>
+
+<font color='gray' size='4' face='휴먼편지체'>
 
 <hr style="width:600px;">
-<div>
-	(총 페이지 수 : <%=tpc%>) <!-- // tpc : totalPageCount 총 게시물 / 3 , 5 , 10 -->
+<div style="text-align:center;">
+	(총 페이지 수 : <%=tpc%>)
 	&nbsp;&nbsp;&nbsp;
 	<% 
 		for(int i=1; i<=tpc; i++){ 

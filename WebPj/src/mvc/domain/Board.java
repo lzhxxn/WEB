@@ -12,11 +12,12 @@ public class Board { //DTO
 	private String ofname;
 	private long fsize;
 	private Date rdate;
+	private int count;
 	
 	public Board() {}
 
 	public Board(int seq, String writer, String email, String subject, String content, String fname, String ofname,
-			long fsize, Date rdate) {
+			long fsize, Date rdate, int count) {
 		super();
 		this.seq = seq;
 		this.writer = writer;
@@ -27,6 +28,7 @@ public class Board { //DTO
 		this.ofname = ofname;
 		this.fsize = fsize;
 		this.rdate = rdate;
+		this.count = count;
 	}
 
 	public int getSeq() {
@@ -101,4 +103,13 @@ public class Board { //DTO
 		this.rdate = rdate;
 	}
 
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
 }
+	

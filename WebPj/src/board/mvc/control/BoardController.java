@@ -25,7 +25,7 @@ import board.mvc.vo.ListResult;
 import file.mvc.model.FileSet;
 
 
-//@WebServlet("/board/board.do")
+@WebServlet("/board/board.do")
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,8 +44,6 @@ public class BoardController extends HttpServlet {
 				content(request, response);
 			}else if(m.equals("del")) {
 				del(request, response);
-			}else if(m.equals("del_all")) {
-				del_all(request, response);
 			}else if(m.equals("update1")) {
 				update1(request, response);
 			}else if(m.equals("update2")) {
@@ -54,6 +52,8 @@ public class BoardController extends HttpServlet {
 				delF(request, response);
 			}else if(m.equals("download")) {
 				download(request, response);
+		/*	}else if(m.equals("readcount")) {
+				readcount(request, response);*/
 			}else {
 				list(request, response);
 			}
@@ -84,7 +84,7 @@ public class BoardController extends HttpServlet {
 				session.setAttribute("cp", cp);
 				
 				/// (2) Page Size : ps 
-				int ps = 3;  // 기본값
+				int ps = 10;  // 기본값
 				if(psStr == null) { // 파라미터로 들어온 값이 없으면,
 					Object psObj = session.getAttribute("ps");
 					// 세션에 있는 ps값을 가져와서 psObj로 값을 넣어준다.
@@ -120,17 +120,17 @@ public class BoardController extends HttpServlet {
 				
 				if(listResult.getList(cp, ps).size() == 0 && cp>1) { 
 					//해당 페이지리스트가 비었고, 페이지가 1페이지 이상인 경우
-					response.sendRedirect("board.do?m=list&cp="+(cp-1));
+					response.sendRedirect("../board.do?m=list&cp="+(cp-1));
 					//앞전페이지로 돌아가라.
 				}else {
-					String view = "list.jsp";
+					String view = "../board/list.jsp";
 					RequestDispatcher rd = request.getRequestDispatcher(view);
 					rd.forward(request, response);
 				}
 		    }
     private void write(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException {
-    	String view = "signup.jsp";
+    	String view = "../board/write.jsp";
     	response.sendRedirect(view);
     }
     private void insert(HttpServletRequest request, HttpServletResponse response) 
@@ -150,15 +150,16 @@ public class BoardController extends HttpServlet {
 		String ofname = mr.getOriginalFileName("fname");
 	    File f = new File(FileSet.FILE_DIR, fname);
 	       long fSize = (long) f.length();
-    	Board dto = new Board(-1, writer, email, subject, content, fname, ofname, fSize, null);
+    	Board dto = new Board(-1, writer, email, subject, content, fname, ofname, fSize, null, -1);
     	BoardService service = BoardService.getInstance();
     	service.insertS(dto);
-    	
-    	String view = "board.do";
+    	System.out.println("CON");
+    	String view = "../board/board.do?m=list";
     	response.sendRedirect(view);
     }
     private void content(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException {
+    	BoardService service = BoardService.getInstance();
     	int seq = -1;
     	String seqStr = request.getParameter("seq");
     	if(seqStr != null){
@@ -166,8 +167,7 @@ public class BoardController extends HttpServlet {
     		if(seqStr.length() != 0){
     			try{
     				seq = Integer.parseInt(seqStr);
-    				BoardService service = BoardService.getInstance();
-    				Board dto = service.contentS(seq);
+      				Board dto = service.contentS(seq);
     				request.setAttribute("dto", dto);
     			}catch(NumberFormatException ne){
     			}
@@ -176,6 +176,8 @@ public class BoardController extends HttpServlet {
     	String view = "content.jsp";
     	RequestDispatcher rd = request.getRequestDispatcher(view);
     	rd.forward(request, response);
+    	
+    	service.upcountS(seq);
     }
     private void del(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException {
@@ -191,17 +193,9 @@ public class BoardController extends HttpServlet {
     		}catch(NumberFormatException ne) {}
     	}
     	
-    	String view = "del.jsp";
+    	String view = "../board/del.jsp";
     	RequestDispatcher rd = request.getRequestDispatcher(view);
     	rd.forward(request, response);
-    }
-    private void del_all(HttpServletRequest request, HttpServletResponse response) 
-    		throws ServletException, IOException {
-    	BoardService service = BoardService.getInstance();
-    	service.delAllS();
-    	
-    	String view = "board.do";
-    	response.sendRedirect(view);
     }
     private void update1(HttpServletRequest request, HttpServletResponse response) 
     		throws ServletException, IOException {
@@ -252,7 +246,7 @@ public class BoardController extends HttpServlet {
     	String content = mr.getParameter("content");
     	String fname = mr.getFilesystemName("fname");
 		String ofname = mr.getOriginalFileName("fname");
-		Board dto = new Board(seq, writer, email, subject, content, fname, ofname, fSize, null);
+		Board dto = new Board(seq, writer, email, subject, content, fname, ofname, fSize, null, -1);
     	
     	BoardService service = BoardService.getInstance();
     	service.update2S(dto);
@@ -326,8 +320,26 @@ public class BoardController extends HttpServlet {
 			}
 		}
 	}
+	/*private void readcount(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		int seq = -1;
+		String seqStr = request.getParameter("seq");
+		if(seqStr != null){
+			seqStr = seqStr.trim();
+			if(seqStr.length() != 0){
+				try{
+					seq = Integer.parseInt(seqStr);
+					BoardService service = BoardService.getInstance();
+					System.out.println("확인");
+					service.upcountS(seq);
+				}catch(NumberFormatException ne){
+    			}
+    		}
+    	}
+				String view = "../board/board.do?m=list";
+				response.sendRedirect(view);
+	}*/
 }
-   
     
     
     

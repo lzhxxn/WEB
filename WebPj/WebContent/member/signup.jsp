@@ -5,8 +5,8 @@
    
 <div class="container">  
   <form id="contact" action="../member/member.do?m=insert" method="post">
-    <h3>SignUp Form</h3>
-    <h4>Nice to meet you</h4>
+    <center><h3>베라 회원등록</h3></center>
+      <center><a href="../context/context.jsp">INDEX</a></center>
     <fieldset>
       <input name='name' placeholder="name" type="text" tabindex="1" required autofocus>
     </fieldset>
@@ -23,8 +23,12 @@
       <textarea name='addr' placeholder="Address here" tabindex="5" required></textarea>
     </fieldset>
     <fieldset>
+      <input name='joindate' placeholder="Joindate here" type="date" tabindex="5" required>
+    </fieldset>
+    <fieldset>
+    <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
-    <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
+  
   </form>
 </div>

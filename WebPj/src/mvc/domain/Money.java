@@ -6,11 +6,11 @@ public class Money {
 	private int seq;
 	private String name;
 	private String grade;
-	private String pricesum;
+	private int pricesum;
 	
 	public Money() {}
 
-	public Money(int seq, String name, String grade, String pricesum) {
+	public Money(int seq, String name, String grade, int pricesum) {
 		super();
 		this.seq = seq;
 		this.name = name;
@@ -42,11 +42,11 @@ public class Money {
 		this.grade = grade;
 	}
 
-	public String getPricesum() {
+	public int getPricesum() {
 		return pricesum;
 	}
 
-	public void setPricesum(String pricesum) {
+	public void setPricesum(int pricesum) {
 		this.pricesum = pricesum;
 	}
 	

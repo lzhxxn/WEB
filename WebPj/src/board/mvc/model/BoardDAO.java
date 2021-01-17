@@ -22,7 +22,7 @@ class BoardDAO {
 		}catch(NamingException ne) {
 		}
 	}
-	/*
+
 	ArrayList<Board> list(){
 		ArrayList<Board> dtos = new ArrayList<Board>();
 		String sql = LIST;
@@ -41,9 +41,13 @@ class BoardDAO {
 				String email = rs.getString(3);
 				String subject = rs.getString(4);
 				String content = rs.getString(5);
-				java.sql.Date rdate = rs.getDate(6);
+				String fname = rs.getString("fname");
+				String ofname = rs.getString("ofname");
+				long fsize = rs.getInt("fsize");
+				java.sql.Date rdate = rs.getDate("rdate");
+				int count = rs.getInt("count");
 			
-				dtos.add(new Board(seq, writer, email, subject, content, rdate));
+				dtos.add(new Board(seq, writer, email, subject, content, fname, ofname, fsize, rdate, count));
 			}
 		}catch(SQLException se) {
 			System.out.println("list() se: " + se);	
@@ -56,7 +60,7 @@ class BoardDAO {
 		}
 		return dtos;
 	}
-	*/
+	
 	ArrayList<Board> list(int currentPage, int pageSize){ //첫번째 SQL 현재페이지&페이지사이즈
 		ArrayList<Board> list = new ArrayList<Board>();
 		Connection con = null;
@@ -82,7 +86,8 @@ class BoardDAO {
 				String ofname = rs.getString("ofname");
 				long fsize = rs.getInt("fsize");
 				Date rdate = rs.getDate("rdate");
-				Board b = new Board(seq, writer, email, subject, content, fname, ofname, fsize, rdate);
+				int count = rs.getInt("count"); 
+				Board b = new Board(seq, writer, email, subject, content, fname, ofname, fsize, rdate, count);
 				list.add(b);
 			}
 			return list;
@@ -139,6 +144,7 @@ class BoardDAO {
 			pstmt.setLong(7, dto.getFsize());
 			pstmt.executeUpdate();
 		}catch(SQLException se){
+			se.printStackTrace();
 		}finally{
 			try{
 				if(pstmt != null) pstmt.close();
@@ -175,7 +181,8 @@ class BoardDAO {
 				String ofname = rs.getString("ofname");
 				int fsize = rs.getInt("fsize");
 				java.sql.Date rdate = rs.getDate("rdate");
-			dto = new Board(seq, writer, email, subject, content, fname, ofname, fsize, rdate);
+				int count = rs.getInt("count");
+			dto = new Board(seq, writer, email, subject, content, fname, ofname, fsize, rdate, count);
 			}
 		   }catch(SQLException se){
 		         try{
@@ -243,8 +250,9 @@ class BoardDAO {
 			  String ofname = rs.getString("ofname");
 			  long fsize = rs.getInt("fsize");
               java.sql.Date rdate = rs.getDate("rdate");
+              int count = rs.getInt("count");
               
-        dto = new Board(seq, writer, email, subject, content, fname, ofname, fsize, rdate);
+        dto = new Board(seq, writer, email, subject, content, fname, ofname, fsize, rdate, count);
            }
         }catch(SQLException se){
         }finally{
@@ -273,6 +281,7 @@ class BoardDAO {
 	         pstmt2.executeUpdate();
 	      }catch(NumberFormatException ne){
 	      }catch(SQLException se){
+	    	  se.printStackTrace();
 	      }finally{
 	         try{
 	            if(pstmt2 != null) pstmt2.close();
@@ -280,5 +289,23 @@ class BoardDAO {
 	         }catch(SQLException sse){}
 	      }
 	   }
+	 void upcount(int seq) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = READCOUNT;
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, seq);
+			pstmt.executeUpdate();
+		}catch(SQLException se) {
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch(SQLException se) {}
+		}
+		
+	}
 	}
 	
