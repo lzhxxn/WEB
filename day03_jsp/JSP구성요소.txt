@@ -1,0 +1,25 @@
+[ JSP 구성요소 ]
+
+1. HTML( Fixed Template Data )
+
+2. JSP Element 
+   (1) 기본  
+       1) 지시어 ( Directive Element )
+          <%@ %>
+       2) 스크립팅원소( Scripting Element )
+          <1> 스크립트렛( Scriptlet )
+	      <% %>
+	  <2> 식( Expression )
+	      <%= %>
+	  <3> 선언 ( Declarelation )
+	      <%! %>
+       3) 액션( JSP Action ) == JSP표준태그 
+          <jsp:XXX />
+
+   (2) 고급  
+       1) JSTL ( Java Standard Tag Lib )
+          <c:XXX />
+       2) EL ( Expression Language )
+          ${}
+
+       cf) CTL ( Custom Tag Lib )

@@ -1,0 +1,17 @@
+< NewContext == 1WebSite == 1WebApp > 
+
+(1) Front End 
+    - HTML / CSS / Javascript 
+    - img/audio/video
+
+(2) Back End 
+    - 웹서버 ( Servlet(java) / Bean(java)  )
+    - WEB-INF/classes/ 
+                  /web.xml 
+cf)                
+    public class A  extends HttpServlet {
+         public void init(){} //로딩 
+         public void service(){} //요청할때마다 
+         public void destroy(){} //언로딩
+    }
+    //JSP(jsp) -> Servlet(java) -> class -> 로딩 
