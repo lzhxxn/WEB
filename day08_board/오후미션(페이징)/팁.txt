@@ -1,0 +1,29 @@
+< 팁 >
+
+(1) 페이징 SQL 
+  (ex1)   
+  select * from (select ROWNUM rnum, SEQ, WRITER, EMAIL, SUBJECT, CONTENT, RDATE from BOARD order by SEQ desc) 
+     where rnum>6 and rnum<=9; --7,8,9
+  (ex2) 
+  select * from (select ROWNUM rnum, aa.* from (select * from BOARD order by SEQ desc) aa) 
+     where rnum>6 and rnum<=9;
+  (일반화)
+  select * from (select ROWNUM rnum, aa.* from (select * from BOARD order by SEQ desc) aa) 
+     where rnum>? and rnum<=?; 
+
+(2) 현재 페이지(cp) / 페이지 싸이즈(ps) 
+   1) View: <a href="board/board.do?cp=2&ps=3">
+   2) Controller 
+      String cpStr = request.getParameter("cp");
+      String psStr = request.getParameter("ps");
+      session.setAttribute("cp", cp);
+      session.setAttribute("ps", ps);
+
+(3) addr.mvc.vo.ListResult 설계 : 한페이지를 구성하는 객체 
+   - Controller
+      request.setAttribute("listResult", listResult);
+
+(4) BoardService
+   public ArrayList<Address> listS(); //오전
+   -> 
+   public ListResult getListResult(int page, int pageSize); //오후
