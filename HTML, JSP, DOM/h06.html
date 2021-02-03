@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>h06.html</title> 
+	</head>
+	<body onload="f.name.focus()"> <!-- 로딩되어질때 이름에 포커스 -->
+		<center>
+		   <h1> 입력폼 </h1>
+		   <form name="f" action="/input.jsp"> <!-- f(폼에담아서) 이쪽 서버(input.jsp)로 전송된다. -->
+		       이름: <input name="name"> <!-- 기본타입 type = text -->
+			   <br/>
+			   주소: <input name="addr">
+			   <br/>
+			   나이: <input name="age">
+			   <br/><br/>
+			   <input type="submit" value="전송">
+			   <input type="reset" value="취소">
+		   </form>
+		</center>
+	</body>
+</html>
+ 

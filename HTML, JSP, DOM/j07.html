@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j07.html</title> 
+		<script>
+		   //var txt = "tiger lion";
+		   /*var txt = "짜장면 짬뽕";
+		   var len = txt.length;
+		   alert("len: " + len);
+		   */
+
+		   //var str = "엄마처럼 다정하고 잠처럼 편하고 꿈처럼 행복한거야";
+		   /*
+           var pos1 = str.indexOf("처럼");
+		   alert("pos1: " + pos1);
+		   var pos2 = str.lastIndexOf("처럼");
+		   alert("pos2: " + pos2);
+		   */
+
+	       /*var r1 = str.slice(10, 10+3); //i1<= val <i2
+		   alert("r1: " + r1);
+		   var r2 = str.substring(10, 10+3);//i1<= val <i2
+		   alert("r2: " + r2);
+		   var r3 = str.substr(10, 3); //i1<= val <i1+i2
+		   alert("r3: " + r3);
+		   var r4 = str.substr(10); 
+		   alert("r4: " + r4);
+		   var r5 = str.substr(-5); 
+		   alert("r5: " + r5);
+		   var r6 = replaceAll(str, "처럼", "같이");
+		   alert("r6: " + r6);
+		   function replaceAll(str, word1, word2){
+			   return str.split(word1).join(word2);
+		   }
+
+		   var target = "   Hello Mr  ";
+		   var r7 = target.toLowerCase();
+		   alert("r7: " + r7);
+		   var r8 = target.toUpperCase();
+		   alert("r8: " + r8);
+           var r9 = target.trim();
+		   alert("r9: " + r9);*/
+
+           var str = "엄마처럼 다정하고 잠처럼 편하고 꿈처럼 행복한거야";
+		   var r10 = str.charAt(0);
+		   alert("r10: " + r10);
+		   str[0]="아"; //str객체는 변경되지X 
+		   alert("str[0]: " + str[0]);
+
+           //i = 20;
+		   function f1(){ //바지 (var 지역변수)
+			   i = 20;
+			   alert("i(1): " + i);
+		   }
+		   function f2(){
+			   alert("i(2): " + i);
+		   }
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>String Method</h1>
+		   <a href="javascript:f1()">호출1</a>
+		   <br/>
+		   <a href="javascript:f2()">호출2</a>
+		   <br/>
+		</center>
+	</body>
+</html>

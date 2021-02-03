@@ -1,0 +1,50 @@
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+<!-- ============================================ Data Source Configuration -->
+
+
+<!-- ================================================ Form Bean Definitions -->
+
+    <form-beans>
+    
+    <form-bean name="gbForm" type="soo.gb.controller.GBForm" /><form-bean name="mbForm" type="soo.mb.controller.MbForm" /><form-bean name="mbSearchForm" type="soo.mb.controller.MbSearchForm" /><form-bean name="loginForm" type="soo.login.controller.LoginForm" /><form-bean name="rbEditForm" type="soo.rb.controller.ReBoardEditForm" /></form-beans>
+
+
+<!-- ========================================= Global Exception Definitions -->
+
+    <global-exceptions>
+        
+    </global-exceptions>
+
+
+<!-- =========================================== Global Forward Definitions -->
+
+    <global-forwards>
+        
+    </global-forwards>
+
+
+<!-- =========================================== Action Mapping Definitions -->
+
+    <action-mappings>
+           
+    <action path="/gb-list" type="soo.gb.controller.GBListAction"><forward name="fw-gb-list" path="/guestbook/GB_list.jsp" redirect="false" /><forward name="fw-gb-error" path="/guestbook/GB_error.jsp" redirect="false" /></action><action path="/main" parameter="/main.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/gb-write" parameter="/guestbook/GB_write.html" type="org.apache.struts.actions.ForwardAction" /><action path="/gb-write-ok" type="soo.gb.controller.GBAction" name="gbForm" validate="false" scope="request"><forward name="fw-gb-list" path="/gb-list.do" redirect="true" /></action><action path="/gb-content" type="soo.gb.controller.GBContentAction"><forward name="fw-gb-content" path="/guestbook/GB_content.jsp" redirect="false" /></action><action path="/gb-del" type="soo.gb.controller.GBDelAction"><forward name="fw-gb-delOk" path="/guestbook/GB_delOk.jsp" redirect="false" /></action><action path="/gb-del-msg" type="soo.gb.controller.GBDelMsgAction"><forward name="fw-del-msg" path="/guestbook/GB_delMsg.jsp" redirect="false" /></action><action path="/gb-update" type="soo.gb.controller.GBUpdateAction"><forward name="fw-gb-update" redirect="false" path="/guestbook/GB_update.jsp" /><forward name="fw-gb-error" path="/guestbook/GB_error.jsp" redirect="false" /></action><action path="/gb-update-ok" type="soo.gb.controller.GBUpdateOkAction" name="gbForm" validate="false" scope="request"><forward name="fw-gb-list" redirect="true" path="/gb-list.do" /><forward name="fw-gb-update-msg" path="/guestbook/GB_updateMsg.jsp" redirect="false" /></action><action path="/mb-ssnCheck" type="soo.mb.controller.MbSsnCheckAction" name="mbForm" validate="false" scope="request"><forward name="fw-mb-ssnCheck-msg" path="/memberJoin/memberMsg.jsp" redirect="false" /></action><action path="/mb-ssn" parameter="/memberJoin/memberSsn.html" type="org.apache.struts.actions.ForwardAction" /><action path="/mb-input" type="soo.mb.controller.MbInputAction"><forward name="fw-mb-input" path="/memberJoin/memberInput.jsp" redirect="false" /></action><action path="/mb-insert" type="soo.mb.controller.MbInsertAction" name="mbForm" validate="false" scope="request"><forward name="fw-mb-join-msg" path="/memberJoin/memberMsg.jsp" redirect="false" /><forward name="fw-mb-ssn" path="/memberJoin/memberSsn.html" redirect="false" /></action><action path="/mb-find" parameter="/memberFind/memberFrame.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/mb-search" type="soo.mb.controller.MbSearchAction" name="mbSearchForm" validate="false" scope="request"><forward name="fw-mb-search-result" path="/memberFind/result.jsp" redirect="false" /></action><action path="/login" parameter="/login/login.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/login-ok" type="soo.login.controller.LoginAction" name="loginForm" validate="false" scope="request"><forward name="fw-login-ok" path="/login/login_ok.jsp" redirect="false" /></action><action path="/session-view" parameter="/session/sessionView.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/logout" parameter="/logout/logout.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/cookie-get" parameter="/cookie/cookieGet.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/cookie-set" parameter="/cookie/cookieSet.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/file-upload" parameter="/fileUpload/fileUpload.html" type="org.apache.struts.actions.ForwardAction" /><action path="/file-upload-ok" type="soo.fu.controller.FileUploadOKAction"><forward name="fw-file-upload-ok" path="/fileUpload/fileUploadOk.jsp" redirect="false" /></action><action path="/file-manager" parameter="/fileManager/fileManager.jsp" type="org.apache.struts.actions.ForwardAction" /><action path="/rb-list" type="soo.rb.controller.ReBoardAction" parameter="method"><forward name="fw-rb-list" path="/reboard/reboard_list_partSel.jsp" redirect="false" /></action><action path="/rb-write" parameter="method" type="soo.rb.controller.ReBoardAction"><forward name="fw-rb-write" path="/reboard/reboard_write.jsp" redirect="false" /></action><action path="/rb-write-ok" type="soo.rb.controller.ReBoardWriteOkAction"><forward name="fw-write-ok" path="/reboard/reboard_msg.jsp" redirect="false" /></action><action path="/rb-content" parameter="method" type="soo.rb.controller.ReBoardAction"><forward name="fw-rb-content" path="/reboard/reboard_content.jsp" redirect="false" /></action><action path="/rb-reply-save" parameter="method" type="soo.rb.controller.ReBoardAction" /><action path="/rb-reply-del" parameter="method" type="soo.rb.controller.ReBoardAction"><forward name="fw-rb-reply-del-msg" path="/reboard/reboard_msg.jsp" redirect="false" /></action><action path="/rb-edit" parameter="method" type="soo.rb.controller.ReBoardAction"><forward name="fw-rb-edit" path="/reboard/reboard_edit.jsp" redirect="false" /></action><action path="/rb-edit-ok" parameter="method" type="soo.rb.controller.ReBoardAction" name="rbEditForm" validate="false" scope="request"><forward name="fw-edit-ok" path="/reboard/reboard_msg.jsp" redirect="false" /></action><action path="/rb-del" parameter="method" type="soo.rb.controller.ReBoardAction"><forward name="fw-rb-del" path="/reboard/reboard_del.jsp" redirect="false" /></action><action path="/rb-del-ok" parameter="method" type="soo.rb.controller.ReBoardAction"><forward name="fw-del-ok" path="/reboard/reboard_msg.jsp" redirect="false" /></action><action path="/rb-rewrite" parameter="method" type="soo.rb.controller.ReBoardAction"><forward name="fw-rb-rewrite" path="/reboard/reboard_rewrite.jsp" redirect="false" /></action><action path="/rb-rewrite-ok" type="soo.rb.controller.ReBoardReWriteOkAction"><forward name="fw-rewrite-ok" path="/reboard/reboard_msg.jsp" redirect="false" /></action></action-mappings>
+
+
+<!-- ============================================= Controller Configuration -->
+
+
+
+<!-- ======================================== Message Resources Definitions -->
+
+    
+
+<!-- =============================================== Plug Ins Configuration -->
+
+  
+
+ <!-- =================================================== Validator plugin -->
+
+  
+</struts-config>

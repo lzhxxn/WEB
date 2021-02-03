@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j09.html</title> 
+	</head>
+	<body>
+		<center>
+		   <h1>Random</h1>
+		   <p id="pId">
+		      문단1 
+		   </p>
+		   <a href="javascript:alert(f(2,4));">클릭</a>
+		</center>
+
+		<script>
+		   //var r = Math.random(); // 0<= value < 1 소수
+           //var r = Math.floor(Math.random()*10); // 0<= value < 9 정수
+
+		   //var el = document.getElementById("pId");
+		   //el.innerHTML = r;
+
+           function f(min, max){ // min<= value < max 정수
+			   return  Math.floor(Math.random()*(max-min) + min);
+		   }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>a2.html</title> 
+		<script>
+		    function f(){
+				var xhttp = new XMLHttpRequest();	
+                xhttp.onreadystatechange = function(){
+					if(this.status == 200 && this.readyState == 4){
+						updateUI(this.responseText);
+					}
+				}
+
+                xhttp.open("GET", "a2.txt", true);
+				xhttp.send();
+			}
+			function updateUI(jsonTxt){
+				var obj = JSON.parse(jsonTxt);
+				//console.log("obj.books: " + obj.books);
+
+				var table = "<table border='1px' width='50%'>";
+				table += "<tr><th>제목</th><th>가격</th><th>저자이름</th><th>저자나이</th></tr>";
+				for(book of obj.books){
+					table+="<tr><td>"+book.title+"</td><td>"
+							+book.price+"</td><td>"
+							+book.author.name+"</td><td>"
+							+book.author.age+"</td></tr>";
+				}
+				table += "</table>";
+		   
+				document.getElementById("pId").innerHTML = table;
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>Ajax (response: JSON)</h1>
+		   <p id="pId">
+		      문단1 
+		   </p>
+
+		   <button onclick="f()">클릭</button>
+		</center>
+	</body>
+</html>

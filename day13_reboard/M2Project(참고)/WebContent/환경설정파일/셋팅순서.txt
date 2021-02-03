@@ -1,0 +1,10 @@
+< 셋팅 순서 >
+
+(1) Java Build Path -> Add Library 버튼
+    - JRE System Library [jdk1.8]
+    - Apache Tomcat v9
+    
+(2) server.xml => URIEncoding="EUC-KR"
+
+cf) jdk8, tomcat9, oracle11g
+ 

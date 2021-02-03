@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j10.html</title> 
+		<script>
+		    var r = "a";
+	        var f = function(i){				
+				switch(i){
+					case "짜장면": r = "a"; break;
+					case 10.12: r = "b"; break; 
+					case "라면":  r = "c"; break;
+					default: r = "default";
+				}
+				document.getElementById("pId").innerHTML=r;
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>switch</h1>
+		   <p id="pId">
+		      문단1 
+		   </p>
+		   <a href="javascript:f('라면')">클릭</a>
+		</center>
+	</body>
+</html>

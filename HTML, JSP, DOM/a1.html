@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>a1.html</title> 
+		<script>
+		    function f(){
+				var xhttp = new XMLHttpRequest();	
+                xhttp.onreadystatechange = function(){
+					if(this.status == 200 && this.readyState == 4){
+						document.getElementById("pId").innerHTML
+						   = this.responseText;
+					}
+				}
+
+                xhttp.open("GET", "a1.txt", true);
+				xhttp.send();
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>Ajax (response: Text)</h1>
+		   <p id="pId">
+		      문단1 
+		   </p>
+
+		   <button onclick="f()">클릭</button>
+		</center>
+	</body>
+</html>
