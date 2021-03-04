@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j15.html</title> 
+		<script>
+		   var f = function(){
+			   var obj = {name:"홍길동", age:25};
+
+			   var jsonTxt = JSON.stringify(obj);
+			   document.getElementById("pId").innerHTML
+			      ="<h2 style='color:red'>"+jsonTxt+"</h2>";
+		   }
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>JSON stringify()</h1>
+		   <p id="pId">
+		      문단1 
+		   </p>
+		   <a href="javascript:f()">변환</a>
+		</center>
+	</body>
+</html>

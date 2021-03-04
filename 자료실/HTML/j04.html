@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j04.html</title> 
+		<script>
+		   function f1(){
+			   alert("f1()");
+		   }
+		   function f2(i, j){
+			   alert("f2() i: " + i + ", j: " + j);
+			   return i+j;
+		   }
+           function f3(){
+			   var r = f2(100, 200);
+			   alert("f3() r: " + r);
+		   }
+
+           var f4 = function(){
+			   alert("f4");
+		   }
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>함수</h1>
+		   <a href="javascript:f1()">f1()</a><br/>
+		   <a href="javascript:f2(10, 20)">f2()</a><br/>
+		   <a href="javascript:f3()">f3()</a><br/>
+		   <a href="javascript:f4()">f4()</a>
+		</center>
+	</body>
+</html>

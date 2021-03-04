@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j13.html</title> 
+		<script>
+		    class Human {
+				/*constructor(){
+				}*/
+				static name = "강감찬";
+
+				constructor(name){
+					this.name = name;
+				}
+				move(){
+					return this.name+"이 걷는다";
+				}
+				static talk(){
+					//return  new Human("이순신").name+"이 말하다";
+					return  obj.name+"이 말하다";
+					//return this.name+"이 말하다";
+				}
+		    }
+			obj = new Human("홍길동");
+			//alert(Human.talk()); //only Class  
+
+			class SuperMan extends Human {
+				constructor(name, power){
+					super(name);
+					this.power = power;
+				}
+				move(){
+					return this.name+"이 난다";
+				}
+			}
+			baby = new SuperMan("송승훈", 100);
+			alert(baby.move());
+			alert(SuperMan.talk());
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>Class</h1>
+		   <p>
+		      문단1 
+		   </p>
+		</center>
+	</body>
+</html>

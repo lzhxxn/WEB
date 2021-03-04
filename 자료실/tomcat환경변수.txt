@@ -1,0 +1,21 @@
+(1) 환경변수 설정 
+    JAVA_HOME => C:\Program Files\Java
+    CATALINA_HOME => C:\SOO\Web\tomcat9
+    Path => %CATALINA_HOME%\bin
+
+    cf) 톰켓 컨솔 한글 깨짐 해결 
+         https://steven-life-1991.tistory.com/91
+
+(2)  WebSite디렉토리 등록 
+     1) tomcat9\conf\server.xml
+        <Context path="h" docBase="C:\SOO\Web\HTML"/>
+
+     2) 톰켓 다시 시작 
+         #> shutdown 
+         #> startup
+
+     3) 웹브라우져 요청 
+         http://localhost:8080/h/
+
+(3) WebApplication  
+    1 WebSite == 1 WebApplication == 1 WebContext 

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j14.html</title> 
+		<script> 
+		    function f(){
+				var jsonTxt = '{"books": [' + 
+					  '{"title":"자바", "author":"안정은", "price":10000},' + 
+					  '{"title":"오라클", "author":"김보라", "price":20000}' + 
+				   ']'+ 
+				'}';
+
+				obj = JSON.parse(jsonTxt);
+				document.getElementById("pId").innerHTML 
+				  = obj.books[1].title + " " + obj.books[1].author;
+			}
+           
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>JSON</h1>
+		   <p id="pId">
+		      문단1 
+		   </p>
+		   <a href="javascript:f()">파싱</a>
+		</center>
+	</body>
+</html>

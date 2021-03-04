@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j08.html</title>
+		<script>
+		    var animals1 = ["tiger", "lion", "rabbit", 10];
+			var animals2 = new Array("tiger2", "lion2", "rabbit2", 20);
+			animals2[1] = "mouse2";
+			var animalsObj = {a0:"tiger3", a1:"lion3", a2:"rabbit3", a3:30};
+            
+			var f = function(){
+				var el = document.getElementById("pId");
+				
+				/*el.innerHTML = "<font size='5' style='color:red'>"+animals2[1]+"</font>";*/
+
+				//el.innerHTML = animals2;
+
+                //el.innerHTML = animals1[3] +  animals2[3];
+
+                //animalsObj["a0"] = "호랑이";
+                //el.innerHTML = animalsObj["a0"];
+
+				//el.innerHTML = animals1[animals1.length-1];
+
+                text = "<ul>";
+				for(i=0; i<animals2.length; i++){
+					text += "<li>"+animals2[i]+"</li>";
+				}
+				animals2.forEach(myFun);
+				text += "</ul>";
+				el.innerHTML = text;
+			}
+			function myFun(value){
+				text += "<li>"+value+"</li>";
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>Array</h1>
+		   <p id="pId" align="left">
+		      문단1 
+		   </p>
+		   <a href="javascript:f()">클릭</a>
+		</center>
+	</body>
+</html>

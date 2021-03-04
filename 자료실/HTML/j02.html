@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j02.html</title> 
+		<script>
+		   function f(){
+			   var i = 10; 
+			   var j = 2;
+			   var k = ++i % j; // 산술: +, -, *, **, /, % 
+			   var name = "홍길동";
+			   document.getElementById('result').innerHTML= k+" "+name; 
+		   }
+		   //비교: ==, !=, >, <, >=, <=, 
+		   //논리: &&, ||, ! 
+		   //증감: ++, --
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>Variables</h1>
+		   <p id="result">
+		      문단1 
+		   </p>
+		   <a href="javascript:f()">호출</a>
+		</center>
+	</body>
+</html>

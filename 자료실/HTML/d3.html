@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>d3.html</title> 
+		<script>
+            //0) init
+			function f0(){
+				elDiv = document.getElementById("divId");
+				cNodes = elDiv.childNodes;
+			}
+		    function f1(){
+			    //1) create 
+                var elFont = document.createElement("font"); //element
+				attrFont = document.createAttribute("style"); //attr
+				attrFont.value = "color:red";
+				elFont.setAttributeNode(attrFont);
+				var txt = document.createTextNode("Happy NewYear"); //text
+				elFont.appendChild(txt);
+
+                //2) update
+				elDiv.replaceChild(elFont, cNodes[1]);
+		    }
+			function f2(){
+				//3) delete 
+				elDiv.removeChild(cNodes[0]);
+			}
+		</script>
+	</head>
+	<body onload="f0()">
+		<center>
+		   <h1>DOM update, delete</h1>
+
+		   <div id="divId">
+			 one
+			 <em>two</em>
+			 three
+		   </div>
+
+		   <input type="button" value="수정" onclick="f1()"/>
+		   &nbsp;&nbsp;&nbsp;
+		   <input type="button" value="삭제" onclick="f2()"/>
+		</center>
+	</body>
+</html>

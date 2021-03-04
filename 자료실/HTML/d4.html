@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>d4.html</title> 
+	</head>
+	<body onload="f0()">
+		<center>
+		   <h1>DOM with Class</h1>
+
+		   <div id="divId">
+			 one
+			 <em>two</em>
+			 three
+		   </div>
+ 
+		   <input type="button" value="수정" onclick="f1()"/>
+		   &nbsp;&nbsp;&nbsp;
+		   <input type="button" value="삭제" onclick="f2()"/>  
+		</center>
+
+        <script src="d4.js"></script>
+		<script>
+			function f0(){
+				dt = new DomTest();
+			}
+			function f1(){
+				dt.up();
+			}
+			function f2(){
+                dt.del();
+			}
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,8 @@
+{"books": [
+      {"title":"자바", "price":10000, "yesno":true, 
+          "author":{"name":"홍길동", "age":25}},
+      
+      {"title":"오라클", "price":20000, "yesno":false, 
+          "author":{"name":"이순신", "age":30}}
+   ]
+}

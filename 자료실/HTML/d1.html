@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>d1.html</title> 
+	</head>
+	<body>
+		<center>
+		   <h1>DOM select</h1>
+
+		   <div id="divId">
+			 one
+			 <em>two</em>
+			 three
+		   </div>
+
+		</center>
+
+		<script>
+		   //alert("Node.ELEMENT_NODE: " + Node.ELEMENT_NODE);
+		   //alert("Node.TEXT_NODE: " + Node.TEXT_NODE);
+		   //alert("Node.ATTRIBUTE_NODE: " + Node.ATTRIBUTE_NODE);
+
+           var elDiv = document.getElementById("divId");
+           //alert("elDiv.nodeType: " + elDiv.nodeType);
+		   //alert("elDiv.nodeName: " + elDiv.nodeName);
+		   //alert("elDiv.nodeValue: " + elDiv.nodeValue);
+
+           var txt = elDiv.firstChild;
+		   //alert("txt.nodeType: " + txt.nodeType);
+		   //alert("txt.nodeName: " + txt.nodeName);
+		   //alert("txt.nodeValue: " + txt.nodeValue);
+
+           var elEm = txt.nextSibling;
+		   //alert("elEm.nodeType: " + elEm.nodeType);
+		   //alert("elEm.nodeName: " + elEm.nodeName);
+		   //alert("elEm.nodeValue: " + elEm.nodeValue);
+
+		   var txtChild = elEm.firstChild;
+		   //alert("txtChild.nodeType: " + txtChild.nodeType);
+		   //alert("txtChild.nodeName: " + txtChild.nodeName);
+		   //alert("txtChild.nodeValue: " + txtChild.nodeValue);
+
+           var attrsDiv = elDiv.attributes;
+           alert("attrsDiv[0].nodeType: " + attrsDiv[0].nodeType);
+		   alert("attrsDiv[0].nodeName: " + attrsDiv[0].nodeName);
+		   alert("attrsDiv[0].nodeValue: " + attrsDiv[0].nodeValue);
+
+		</script>
+	</body>
+</html>
+
+                
+   
+   

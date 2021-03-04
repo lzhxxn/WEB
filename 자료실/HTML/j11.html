@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <title>j11.html</title> 
+		<script>
+		    /*
+		    foods = [];
+			foods[0] = "짜장면";
+            foods[1] = "짬뽕";
+		    for(var i=0; i<foods.length; i++){
+                alert("i: " + foods[i]);
+			}*/
+
+            var woman = {name:"보라", age:25};
+            function f(){
+				var txt = "";
+				for(key in woman){
+					txt += (key +": "+ woman[key] + " ");
+				} 
+				document.getElementsByTagName("p")[0].innerHTML= txt;
+			}
+           
+			foods = ["김치찌개", "된장찌개"]; 
+            for(item of foods){
+                alert(item);
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+		   <h1>for</h1>
+		   <p>
+		      문단1 
+		   </p>
+		   <a href="javascript:f()">클릭</a>
+		</center>
+	</body>
+</html>
